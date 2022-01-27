@@ -9,60 +9,39 @@
  
  ![calc ](https://user-images.githubusercontent.com/79501478/151348591-746c0649-7da4-43a9-b5c9-de2d11ee6968.png)
 
+User Story #1: My calculator should contain a clickable element containing an = (equal sign) with a corresponding id="equals".
 
+User Story #2: My calculator should contain 10 clickable elements containing one number each from 0-9, with the following corresponding IDs: id="zero", id="one", id="two", id="three", id="four", id="five", id="six", id="seven", id="eight", and id="nine".
 
-User Story #1: I can see an element with id="break-label" that contains a string (e.g. "Break Length").
+User Story #3: My calculator should contain 4 clickable elements each containing one of the 4 primary mathematical operators with the following corresponding IDs: id="add", id="subtract", id="multiply", id="divide".
 
-User Story #2: I can see an element with id="session-label" that contains a string (e.g. "Session Length").
+User Story #4: My calculator should contain a clickable element containing a . (decimal point) symbol with a corresponding id="decimal".
 
-User Story #3: I can see two clickable elements with corresponding IDs: id="break-decrement" and id="session-decrement".
+User Story #5: My calculator should contain a clickable element with an id="clear".
 
-User Story #4: I can see two clickable elements with corresponding IDs: id="break-increment" and id="session-increment".
+User Story #6: My calculator should contain an element to display values with a corresponding id="display".
 
-User Story #5: I can see an element with a corresponding id="break-length", which by default (on load) displays a value of 5.
+User Story #7: At any time, pressing the clear button clears the input and output values, and returns the calculator to its initialized state; 0 should be shown in the element with the id of display.
 
-User Story #6: I can see an element with a corresponding id="session-length", which by default displays a value of 25.
+User Story #8: As I input numbers, I should be able to see my input in the element with the id of display.
 
-User Story #7: I can see an element with a corresponding id="timer-label", that contains a string indicating a session is initialized (e.g. "Session").
+User Story #9: In any order, I should be able to add, subtract, multiply and divide a chain of numbers of any length, and when I hit =, the correct result should be shown in the element with the id of display.
 
-User Story #8: I can see an element with corresponding id="time-left". NOTE: Paused or running, the value in this field should always be displayed in mm:ss format (i.e. 25:00).
+User Story #10: When inputting numbers, my calculator should not allow a number to begin with multiple zeros.
 
-User Story #9: I can see a clickable element with a corresponding id="start_stop".
+User Story #11: When the decimal element is clicked, a . should append to the currently displayed value; two . in one number should not be accepted.
 
-User Story #10: I can see a clickable element with a corresponding id="reset".
+User Story #12: I should be able to perform any operation (+, -, *, /) on numbers containing decimal points.
 
-User Story #11: When I click the element with the id of reset, any running timer should be stopped, the value within id="break-length" should return to 5, the value within id="session-length" should return to 25, and the element with id="time-left" should reset to its default state.
+User Story #13: If 2 or more operators are entered consecutively, the operation performed should be the last operator entered (excluding the negative (-) sign). For example, if 5 + * 7 = is entered, the result should be 35 (i.e. 5 * 7); if 5 * - 5 = is entered, the result should be -25 (i.e. 5 * (-5)).
 
-User Story #12: When I click the element with the id of break-decrement, the value within id="break-length" decrements by a value of 1, and I can see the updated value.
+User Story #14: Pressing an operator immediately following = should start a new calculation that operates on the result of the previous evaluation.
 
-User Story #13: When I click the element with the id of break-increment, the value within id="break-length" increments by a value of 1, and I can see the updated value.
+User Story #15: My calculator should have several decimal places of precision when it comes to rounding (note that there is no exact standard, but you should be able to handle calculations like 2 / 7 with reasonable precision to at least 4 decimal places).
 
-User Story #14: When I click the element with the id of session-decrement, the value within id="session-length" decrements by a value of 1, and I can see the updated value.
+Note On Calculator Logic: It should be noted that there are two main schools of thought on calculator input logic: immediate execution logic and formula logic. Our example utilizes formula logic and observes order of operation precedence, immediate execution does not. Either is acceptable, but please note that depending on which you choose, your calculator may yield different results than ours for certain equations (see below example). As long as your math can be verified by another production calculator, please do not consider this a bug.
 
-User Story #15: When I click the element with the id of session-increment, the value within id="session-length" increments by a value of 1, and I can see the updated value.
+EXAMPLE: 3 + 5 x 6 - 2 / 4 =
 
-User Story #16: I should not be able to set a session or break length to <= 0.
-
-User Story #17: I should not be able to set a session or break length to > 60.
-
-User Story #18: When I first click the element with id="start_stop", the timer should begin running from the value currently displayed in id="session-length", even if the value has been incremented or decremented from the original value of 25.
-
-User Story #19: If the timer is running, the element with the id of time-left should display the remaining time in mm:ss format (decrementing by a value of 1 and updating the display every 1000ms).
-
-User Story #20: If the timer is running and I click the element with id="start_stop", the countdown should pause.
-
-User Story #21: If the timer is paused and I click the element with id="start_stop", the countdown should resume running from the point at which it was paused.
-
-User Story #22: When a session countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of timer-label should display a string indicating a break has begun.
-
-User Story #23: When a session countdown reaches zero (NOTE: timer MUST reach 00:00), a new break countdown should begin, counting down from the value currently displayed in the id="break-length" element.
-
-User Story #24: When a break countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of timer-label should display a string indicating a session has begun.
-
-User Story #25: When a break countdown reaches zero (NOTE: timer MUST reach 00:00), a new session countdown should begin, counting down from the value currently displayed in the id="session-length" element.
-
-User Story #26: When a countdown reaches zero (NOTE: timer MUST reach 00:00), a sound indicating that time is up should play. This should utilize an HTML5 audio tag and have a corresponding id="beep".
-
-User Story #27: The audio element with id="beep" must be 1 second or longer.
-
-User Story #28: The audio element with id of beep must stop playing and be rewound to the beginning when the element with the id of reset is clicked.
+Immediate Execution Logic: 11.5
+Formula/Expression Logic: 32.5
